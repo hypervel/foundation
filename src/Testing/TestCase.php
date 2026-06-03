@@ -15,6 +15,7 @@ use Hypervel\Foundation\Testing\Concerns\InteractsWithSession;
 use Hypervel\Foundation\Testing\Concerns\InteractsWithTime;
 use Hypervel\Foundation\Testing\Concerns\MakesHttpRequests;
 use Hypervel\Foundation\Testing\Concerns\MocksApplicationServices;
+use Hypervel\Queue\Queue;
 use Hypervel\Support\Facades\Facade;
 use Mockery;
 use Throwable;
@@ -123,6 +124,7 @@ abstract class TestCase extends \PHPUnit\Framework\TestCase
             $this->flushApplication();
             /* @phpstan-ignore-next-line */
             Coroutine::flushAfterCreated();
+            Queue::createPayloadUsing(null);
         }
 
         $this->afterApplicationCreatedCallbacks = [];
