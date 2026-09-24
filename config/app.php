@@ -259,8 +259,6 @@ return [
     ])->merge([
         // Application Service Providers...
         // App\Providers\AppServiceProvider::class,
-    ])->merge([
-        // Added Service Providers (Do not remove this line)...
     ])->toArray(),
 
     /*
